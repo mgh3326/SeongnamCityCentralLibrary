@@ -1,0 +1,141 @@
+﻿a:link {color: #333333;text-decoration:none; font-weight:normal}
+a:visited {color: #333333;text-decoration:none; font-weight:normal}
+a:hover {color: #333333;text-decoration:none; font-weight:normal}
+
+body{font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220",sans-serif; color:#333; width:100%; font-size:12px;}
+
+.Manager_name
+{
+	font-size: 15px;
+	color: #ffffff;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-weight: bold;
+}
+
+
+.WhiteText
+{
+	color: #ffffff;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.BlackText
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 16px;
+}
+
+.BlackText_Status
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 12px;
+}
+
+.WhiteText_s
+{
+	color: #ffffff;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 14px;
+}
+
+.BlackText_s
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 14px;
+}
+
+.RoomStatusNumberText
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 10px;
+}
+
+.RoomStatusNumberTextSigunh
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 11px;
+}
+
+
+
+.PrintText
+{
+	color: #000000;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 14px;
+}
+
+
+
+
+.MainMenu
+{
+	color: #ffffff;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 15px;
+	background-color:#0a85c5;
+}
+
+.SubMenu
+{
+	color: #071a56;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	font-size: 13px;
+}
+
+
+.TitleTr
+{
+	color: #0a85c5;
+	font-family: malgun, 'Malgun Gothic', "맑은 고딕", Gulim, "굴림", Dotum, "돋움", "-윤고딕220", sans-serif; 
+	background-color : #c1e9fd;
+	font-size: 15px;
+}
+
+.RowTd
+{
+	cursor:hand;
+}
+
+
+.search_tbl {border:1px solid #818FB6}
+.search_tbl th {font-size:14px; background:#DFE7EE; width:80px;padding: 0 5px;}
+.search_tbl td {padding:3px 0; width:520px;}
+.search_tbl .item_td div {margin-bottom:5px;}
+
+.radio_tbl td, .rb_item {padding-left:10px;font-size:14px;text-align:center;}
+
+.float_left {display:inline;float:left;}
+.show_pane {background: #FDE3E3;padding: 5px 10px;}
+.gv {clear:both;border-collapse:collapse; border:1px solid #C6C8D7;}
+.gv_header {height:30px; border-top:2px solid #667EB7; background:#E3EBFB;}
+.gv_row {height:24px; text-align:center;}
+.gv_row_a {background:#F2F4F9; height:24px; text-align:center;}
+.gv_pager { font-size:14px; font-weight:bold; color:#333399; }
+.gv_pager a { font-size:12px; font-weight:normal; color:#333333; }
+.gv_left_td {padding-left:5px; text-align:left;}
+.gv_hidden {display:none;}
+.day_bar_low {border:1px solid #4E8F65; background:#8ED09A; height:15px;}
+.day_bar_midium {border: 1px solid #6DA6C7; background: #B7D1EA; height: 15px;}
+.day_bar_high {border: 1px solid #FD602B;background: #FE8870;height: 15px;}
+.day_bar_max {border: 1px solid #C20A0A; background: #FE7070; height:15px;}
+
+.year_div {    border: 1px solid #DCDEED; width:800px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #F4F7FB;}
+.year_tbl {margin:20px 0 10px 0;}
+.year_tbl span {font-weight:bold;text-align:center;}
+.year_tbl td {text-align:center; width:50px;}
+.year_tbl .year_bottom_tr td {text-align:center;border-top:1px solid #ccc;padding-top:5px;}
+.year_tbl .year_top_tr td {vertical-align:bottom;}
+.year_tbl .m_left_td {border-right:1px solid #ccc;}
+.mon_bar {width:16px;border:1px solid #A4BCD9;background: #C2D6E9;margin-left:15px; vertical-align:bottom;}

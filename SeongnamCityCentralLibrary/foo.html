@@ -1,0 +1,938 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	ezlib 열람실 현황
+</title>
+<!-- rounding table -->
+<script src="../../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function roundTable(objID) {
+        var obj = document.getElementById(objID);
+        var Parent, objTmp, Table, TBody, TR, TD;
+        var bdcolor, bgcolor, Space;
+        var trIDX, tdIDX, MAX;
+        var styleWidth, styleHeight;
+
+        // get parent node
+        Parent = obj.parentNode;
+        objTmp = document.createElement('SPAN');
+        Parent.insertBefore(objTmp, obj);
+        Parent.removeChild(obj);
+
+        // get attribute
+        bdcolor = obj.getAttribute('rborder');
+        bgcolor = obj.getAttribute('rbgcolor');
+        radius = parseInt(obj.getAttribute('radius'));
+        if (radius == null || radius < 1) radius = 1;
+        else if (radius > 6) radius = 6;
+
+        MAX = radius * 2 + 1;
+
+        Table = document.createElement('TABLE');
+        TBody = document.createElement('TBODY');
+
+        Table.cellSpacing = 0;
+        Table.cellPadding = 0;
+
+        for (trIDX = 0; trIDX < MAX; trIDX++) {
+            TR = document.createElement('TR');
+            Space = Math.abs(trIDX - parseInt(radius));
+            for (tdIDX = 0; tdIDX < MAX; tdIDX++) {
+                TD = document.createElement('TD');
+
+                styleWidth = '1px'; styleHeight = '1px';
+                if (tdIDX == 0 || tdIDX == MAX - 1) styleHeight = null;
+                else if (trIDX == 0 || trIDX == MAX - 1) styleWidth = null;
+                else if (radius > 2) {
+                    if (Math.abs(tdIDX - radius) == 1) styleWidth = '2px';
+                    if (Math.abs(trIDX - radius) == 1) styleHeight = '2px';
+                }
+
+                if (styleWidth != null) TD.style.width = styleWidth;
+                if (styleHeight != null) TD.style.height = styleHeight;
+
+                if (Space == tdIDX || Space == MAX - tdIDX - 1) TD.style.backgroundColor = bdcolor;
+                else if (tdIDX > Space && Space < MAX - tdIDX - 1) TD.style.backgroundColor = bgcolor;
+
+                if (Space == 0 && tdIDX == radius) TD.appendChild(obj);
+                TR.appendChild(TD);
+            }
+            TBody.appendChild(TR);
+        }
+        Table.appendChild(TBody);
+        // insert table and remove original table
+        Parent.insertBefore(Table, objTmp);
+    }
+    function addDiv()
+    {
+
+    }
+
+    (function () {
+        setInterval(function () { document.getElementById('form1').submit(); }, 30 * 1000)
+    })();
+
+    $(document).ready(function () {
+        //$('body').empty();
+        //$('body').append("<img style='margin: 0 auto;' alt='' src='../../image/RoomStatus/holiday.gif' />")
+    });
+</script>
+<!-- rounding table -->
+<link href="include/MenuStyle.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+.table_title{    
+    border: 1px; color:#F0F5FA; font-weight:bold; border-style:solid;border-color:#BFC3C5
+    }
+td { 
+    font-weight:bold;
+}
+.element{
+    display:inline-block;
+    text-align:center;
+    height:100px;
+    font-weight:bold;
+    font-size: 15px;
+    border-width:0px;
+}
+</style>
+<script type="text/javascript">
+function SelectRow(room_no)
+{
+    document.getElementById("Roon_no").value = room_no;
+    document.getElementById('form1').submit();
+}
+</script>
+</head>
+<body class="BlackText_Status" onload="addDiv();" style="padding: 0px; margin: 0px">
+<form action="RoomStatus.aspx" id="form1" method="post" name="form1">
+<input id="__VIEWSTATE" name="__VIEWSTATE" type="hidden" value="/wEPDwUKMTgwNzQzMjM3MWRkrP3scz/itEFfjlxuP+Z2QbQBxpQ="/>
+<input id="__VIEWSTATEGENERATOR" name="__VIEWSTATEGENERATOR" type="hidden" value="880FA830"/>
+<input id="__EVENTVALIDATION" name="__EVENTVALIDATION" type="hidden" value="/wEWAgKWuaeTBgLJ0ILXB9jZM5AHjC1xDQUzHOiGSoAW2k93"/>
+<input id="Roon_no" name="Roon_no" type="hidden" value="1"/>
+<div>
+<!--[if IE 6]>
+<script>
+<style type="text/css">
+.Style1 { background-color:#598935;background-image: url('/image/img/3D_button.png');background-repeat: no-repeat;}
+.Style_1 { background-color:#598935;background-image: url('/image/img/3D_button_.png');background-repeat: no-repeat;}
+.Style9 { background-color:#6B6C68;background-image: url('/image/img/3D_button.png');background-repeat: no-repeat;}
+.Style_9 { background-color:#6B6C68;background-image: url('/image/img/3D_button_.png');background-repeat: no-repeat;}
+</style>
+
+</script>
+<![endif]-->
+<style type="text/css">
+.Style1 {border: 1px; border-style:solid; background-color:#598935;font-weight:bold;}
+.Style_1 {border: 1px; border-style:solid;background-color:#598935;font-weight:bold;}
+.Style9 {border: 1px; border-style:solid; background-color:#6B6C68;font-weight:bold;}
+.Style_9 {border: 1px; border-style:solid;background-color:#6B6C68;font-weight:bold;}
+</style>
+<style type="text/css">
+.Style_M {border: 1px; border-style:solid; background-color:#5eadfc;font-weight:bold;}
+.Style_F {border: 1px; border-style:solid; background-color:#fe5a5a;font-weight:bold;}
+.StyleM {border: 1px; border-style:solid; background-color:#5eadfc;}
+.StyleF {border: 1px; border-style:solid; background-color:#fe5a5a;}
+</style>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr style="height:65px;">
+<td colspan="4" style="text-align: left; font-size:20px; padding-left: 35px;">
+            열람실 좌석 현황
+         </td>
+</tr>
+<tr>
+<td rowspan="3" style="width:35px;"> </td>
+<td align="left" colspan="2">
+<!-- 430px -->
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr style="height: 30px; text-align: center; background-color: #0054A6;font-size:15px;">
+<td class="table_title"> 열람실명</td>
+<td class="table_title"> 전체좌석</td>
+<td class="table_title"> 사용좌석</td>
+<td class="table_title"> 잔여좌석</td>
+<td class="table_title"> 이용률(%)</td>
+<td class="table_title">대기자수</td>
+<td class="table_title">호출번호</td>
+<td class="table_title">예정번호 </td>
+</tr>
+<tr onclick="SelectRow('1')" style="height: 20px;text-align: center;cursor:hand;background-color: #BFD2DC;font-weight:bold; font-size=12px">
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+3층 1열람실(비칸막이)    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+216    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+93    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+123    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+43.06%</td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+</tr>
+<tr onclick="SelectRow('2')" style="height: 20px;text-align: center;cursor:hand;background-color: #ffffff;font-weight:bold; font-size=12px">
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+3층 2열람실    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+216    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+145    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+71    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+67.13%</td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+</tr>
+<tr onclick="SelectRow('3')" style="height: 20px;text-align: center;cursor:hand;background-color: #ffffff;font-weight:bold; font-size=12px">
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+4층 3열람실(성인)    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+216    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+118    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+98    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+54.63%</td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+</tr>
+<tr onclick="SelectRow('4')" style="height: 20px;text-align: center;cursor:hand;background-color: #ffffff;font-weight:bold; font-size=12px">
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+4층 4열람실    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+216    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+198    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+18    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+91.67%</td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+0    </td>
+</tr>
+<tr style="height: 20px;text-align: center;cursor:hand;background-color: #ffffff;font-weight:bold; font-size=12px">
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+계    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+864    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+554    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+310    </td>
+<td style="border: 1px;border-style:solid;border-color:#BFC3C5;">
+64.12%    </td>
+</tr>
+</table>
+<br/>
+</td>
+<td style="width:120px"> </td>
+</tr>
+<tr>
+<td colspan="2" id="tbl_table" style="border-style:solid; border-width:2px; border-color:#0054A6">
+<center>
+<table border="0">
+<tr><td colspan="3"> </td></tr>
+<tr><td width="50px"> </td>
+<td>
+<table cellpadding="1" cellspacing="3" class="BlackText_Status">
+<tr>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+1</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+2</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+3</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+4</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+5</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+6</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+7</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+8</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+9</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+10</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+11</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+12</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+24</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+23</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+22</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+21</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+20</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+19</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+18</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+17</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+16</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+15</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+14</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+13</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+25</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+26</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+27</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+28</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+29</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+30</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+31</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+32</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+33</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+34</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+35</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+36</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+48</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+47</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+46</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+45</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+44</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+43</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+42</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+41</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+40</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+39</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+38</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+37</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+49</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+50</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+51</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+52</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+53</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+54</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+55</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+56</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+57</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+58</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+59</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+60</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+72</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+71</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+70</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+69</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+68</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+67</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+66</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+65</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+64</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+63</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+62</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+61</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+73</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+74</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+75</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+76</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+77</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+78</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+79</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+80</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+81</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+82</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+83</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+84</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+96</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+95</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+94</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+93</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+92</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+91</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+90</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+89</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+88</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+87</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+86</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+85</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+97</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+98</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+99</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+100</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+101</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+102</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+103</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+104</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+105</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+106</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+107</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+108</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+120</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+119</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+118</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+117</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+116</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+115</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+114</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+113</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+112</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+111</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+110</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+109</td>
+</tr>
+<tr>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+121</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+122</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+123</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+124</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+125</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+126</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+127</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+128</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+129</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+130</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+131</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+132</td>
+</tr>
+<tr>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+144</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+143</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+142</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+141</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+140</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+139</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+138</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+137</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+136</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+135</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+134</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+133</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+145</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+146</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+147</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+148</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+149</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+150</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+151</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+152</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+153</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+154</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+155</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+156</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+168</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+167</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+166</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+165</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+164</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+163</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+162</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+161</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+160</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+159</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+158</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+157</td>
+</tr>
+<tr>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+169</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+170</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+171</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+172</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+173</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+174</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+175</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+176</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+177</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+178</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+179</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+180</td>
+</tr>
+<tr>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+192</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+191</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+190</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+189</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+188</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+187</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+186</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+185</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+184</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+183</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+182</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+181</td>
+</tr>
+<tr>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+193</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+194</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+195</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+196</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+197</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+198</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+204</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+203</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+202</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+201</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+200</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+199</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+205</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+206</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+207</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+208</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+209</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+210</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+</tr>
+<tr>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+216</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+215</td>
+<td class="Style1" style="text-align: center;width:30px;height:25px; font-size:10px;">
+214</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+213</td>
+<td class="StyleF" style="text-align: center;width:30px;height:25px; font-size:10px;">
+212</td>
+<td class="StyleM" style="text-align: center;width:30px;height:25px; font-size:10px;">
+211</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+<td style="text-align: center;width:30px;height:25px;">
+ 
+</td>
+</tr>
+</table>
+</td>
+<td width="50px"> </td>
+</tr>
+<tr><td colspan="3"> </td></tr>
+</table>
+</center>
+<br/>
+</td>
+<td id="comment" style="vertical-align: top; text-align:center">
+<center>
+<!-- Todo : 남녀구분할 경우 처리 -->
+<table cellpadding="2" style="width:100px; border-color:black">
+<tr style="height:15px">
+<td class="Style_1" style="width:100px;text-align: center; font-size:12px">이용가능</td>
+</tr>
+<tr style="height:15px">
+<td class="Style_9" style="width:100px;text-align: center; font-size:12px">이용불가</td>
+</tr>
+<tr style="height:10px">
+<td class="Style_M" style="width:100px;text-align: center;">사용중(남)</td>
+</tr>
+<tr style="height:10px">
+<td class="Style_F" style="width:100px;text-align: center;">사용중(여)</td>
+</tr>
+</table></center></td></tr></table></div></form></body></html>
+
+
+
+
+<tr>
+<td class="WhiteText_s" colspan="3" style="height: 25px; text-align: left;"></td>
+</tr>
+
+
+
+
+
