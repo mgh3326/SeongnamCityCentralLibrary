@@ -25,6 +25,7 @@ def get_html(url):  # 날씨 코드를 받아오기
     return _html
 
 
+# noinspection PyPep8Naming
 def GetLibraryStatus():  # 결과값을 년도, 달별로 받기
     # Body	__VIEWSTATE	%2FwEPDwUKMTgwNzQzMjM3MWRkrP3scz%2FitEFfjlxuP%2BZ2QbQBxpQ%3D
     # Body	__VIEWSTATEGENERATOR	880FA830
@@ -44,7 +45,6 @@ def GetLibraryStatus():  # 결과값을 년도, 달별로 받기
     table_title = store_table[1].findAll('td', attrs={'class': 'table_title'})
 
     len(table_title)
-
 
     for i in range(int(len(store_table[1].findAll('td')) / len(table_title)) + 1):
         seatStatusList.append(SeatStatus())
@@ -72,6 +72,7 @@ def GetLibraryStatus():  # 결과값을 년도, 달별로 받기
         # f.write(str(soup_data))
         # f.close()
     return
+
 
 seatStatusList = []
 GetLibraryStatus()
